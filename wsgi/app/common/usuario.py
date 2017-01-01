@@ -1,4 +1,4 @@
-class UsuarioItemItem():
+class UsuarioItem():
 	id=0
 	nombre=""
 	apellido=""
