@@ -1,0 +1,19 @@
+﻿<h1 class="pageTitle">{{categoria.nombre}} - {{categoria.seccion}}</h1>
+<ul>
+    <li ng-repeat="noti in noticias">
+
+    <h4 style=" text-transform: capitalize;">
+        
+		<span style="color: #777; margin-right:5px;text-align: right;">{{noti.fecha | date : 'yyyy-mm-dd'}} </span>{{noti.titulo}}
+    </h4>
+
+	<img ng-hide="noti.url==null" src="{{noti.url}}" width="25%" height="100%"/>
+	<p>{{noti.copete}}</p>
+    </li>
+</ul>
+
+
+ 
+ 
+
+ 
