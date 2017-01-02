@@ -1,17 +1,17 @@
 import sys
-from  app.data import UsuarioBusData
+from  app.data import UsuarioData
 
-class UsuarioBusBus():
-    usuariobus = UsuarioBusData()
+class UsuarioBus():
+    usuario = UsuarioData()
     def __init__(self):
-        print('usuariobus')
+        print('usuario')
     def getAll(self):
-        return self.usuariobus.getAll()
+        return self.usuario.getAll()
     def getById(self,id):
-        return self.usuariobus.getById(id)
+        return self.usuario.getById(id)
     def delete(self,id):
-        return self.usuariobus.delete(id)  
+        return self.usuario.delete(id)  
     def insert(self,item):
-        return self.usuariobus.insert(item)
+        return self.usuario.insert(item)
     def update(self,item):
-        return self.usuariobus.update(item)    
+        return self.usuario.update(item)    

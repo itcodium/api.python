@@ -2,12 +2,12 @@ import os
 import mysql.connector
 
 
-class Database:
+class Db:
 	cnn = mysql.connector.connect(  user= os.environ["OPENSHIFT_MYSQL_DB_USERNAME"], 
 								password= os.environ["OPENSHIFT_MYSQL_DB_PASSWORD"],
 								    host= os.environ["OPENSHIFT_MYSQL_DB_HOST"],
 								    port= os.environ["OPENSHIFT_MYSQL_DB_PORT"],
-								database= 'data_mining_go')
+								database= 'Basic')
 	def getDictionary(self,data):
 		result = []
 		for recordset in data:

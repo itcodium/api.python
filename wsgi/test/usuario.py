@@ -21,21 +21,21 @@ sys.path.insert(0, previous_folder)
 
 
 
-from app.common import UsuarioItemItem
-from app.bus import UsuarioItemBus
+from app.common import UsuarioItem
+from app.bus import UsuarioBus
 
-cBus=UsuarioItemBus()
-item=UsuarioItemItem()
+cBus=UsuarioBus()
+item=UsuarioItem()
 
-a.id=0
-a.nombre=""
-a.apellido=""
-a.usuario=""
-a.habilitado=0
-a.creado_por=""
-a.modificado_por=""
-a.fecha_creacion=None
-a.fecha_modificacion=None
+item.id=0
+item.nombre=""
+item.apellido=""
+item.usuario=""
+item.habilitado=0
+item.creado_por=""
+item.modificado_por=""
+item.fecha_creacion=None
+item.fecha_modificacion=None
 
 
 print ("0)------------------ Insert -------------------------")
@@ -54,15 +54,15 @@ print ("3)------------------- Update ------------------------")
 #item.id=getItem[0]["id"]
 #datetime.datetime.now()
 
-a.id=0
-a.nombre=""
-a.apellido=""
-a.usuario=""
-a.habilitado=0
-a.creado_por=""
-a.modificado_por=""
-a.fecha_creacion=None
-a.fecha_modificacion=None
+item.id=0
+item.nombre=""
+item.apellido=""
+item.usuario=""
+item.habilitado=0
+item.creado_por=""
+item.modificado_por=""
+item.fecha_creacion=None
+item.fecha_modificacion=None
 
 
 cBus.update(item)
