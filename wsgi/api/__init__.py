@@ -1,6 +1,9 @@
 from .link import Link
 from .link import LinkList
 
+from .Usuario import Usuario
+from .Usuario import UsuarioList
+
 from .customException import CustomException
 
 from .support_jsonp	import support_jsonp

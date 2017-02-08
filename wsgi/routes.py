@@ -9,6 +9,9 @@ from flask_cors import CORS, cross_origin
 from api import Link
 from api import LinkList
 
+from api import Usuario
+from api import UsuarioList
+
 
  
 app = Flask(__name__, static_url_path='')
@@ -45,6 +48,9 @@ api = Api(app)
  
 api.add_resource(LinkList, '/api/link')
 api.add_resource(Link, '/api/link/<id>')
+
+api.add_resource(UsuarioList, '/api/usuario')
+api.add_resource(Usuario, '/api/usuario/<id>')
  
 
 if __name__ == "__main__":

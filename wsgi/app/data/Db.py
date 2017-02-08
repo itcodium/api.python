@@ -14,8 +14,4 @@ class Db:
 			for x in recordset:
 				result.append(dict(zip(recordset.column_names,x)))	
 		return result 
-
-print(os.environ["OPENSHIFT_MYSQL_DB_USERNAME"], 
-								password= os.environ["OPENSHIFT_MYSQL_DB_PASSWORD"],
-								    host= os.environ["OPENSHIFT_MYSQL_DB_HOST"],
-								    port= os.environ["OPENSHIFT_MYSQL_DB_PORT"])
+ 

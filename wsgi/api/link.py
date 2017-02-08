@@ -25,11 +25,8 @@ from .customException import CustomException
 from .support_jsonp import support_jsonp_custom
 from .support_jsonp import support_jsonp_ok
 
-#from  mining.common import ModuloItem
-#from  mining.bus import ModuloBus
-#from  mining.bus import NoticiasBus
-#from scrap import  Scrapping
-#from scrap.rssReader import  RssReader
+from  app.common import UsuarioItem
+from  app.bus import UsuarioBus
 
 resource_fields = {
     'operacion':fields.String,
@@ -39,11 +36,7 @@ resource_fields = {
 
  
  
-#modulo=ModuloBus()
-#scrap=Scrapping()
-#noticias=NoticiasBus()
-#idModulo=scrap.buscarModulo("NOTICIAS")
-
+usuario=UsuarioBus()
 
 import threading
 
@@ -96,50 +89,7 @@ class LinkList(Resource,CustomException):
 class Link(Resource,CustomException):
     def get(self, id):
         try:
-            print("test")
-            '''
-            if(id=="OBTENER_LINKS"):
-                scrap.obtenerLinks()
-
-            if(id=="GUARDAR_LINK"):
-                scrap.guardarLinkEnDisco(os.environ["OPENSHIFT_DATA_DIR"],request.args.get('idUrl'))
-
-            if(id=="DATA_PARSER"):
-                scrap.dataParser()
-            
-            
-            if(id=="RSS_READER"):
-                reader=RssReader() 
-                reader.read();
-            
-            if(id=="CATEGORY_FIX"):
-                reader=RssReader() 
-                reader.categoryFix();
-            if(id=="PUBDATE_FIX"):
-                reader=RssReader() 
-                data=reader.pubDateFix();
-                return support_jsonp_custom([{"data":data}],resource_fields)
-            if(id=="INFOBAE"):
-                data=getInfobae()
-                return support_jsonp_custom([{"data":data}],resource_fields)
-
-            
-
-            if(id=="STOPWORDS"):
-                t = threading.Thread(target=wStopWords)
-                t.start()
-
-            if(id=="NOTICIAS"):
-                data=noticias.getAll()
-                return support_jsonp_custom([{"data":data}],resource_fields)
-
-            if(id=="DOAll"):
-                t = threading.Thread(target=worker)
-                t.start()
-            '''        
-                
-            return support_jsonp_custom([{"data":"data"}],resource_fields)
-
-            #return support_jsonp_custom([{"param":id}],resource_fields)
+            data= modulo.getAll()
+            return support_jsonp_custom(data,resource_fields)
         except  Exception as err:
-            return self.showCustomException(err,request.args)
+            return self.showCustomException(err,request.args)    
