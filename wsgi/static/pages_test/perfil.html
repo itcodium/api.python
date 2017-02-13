@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="rrhh" ng-controller="perfil">
+    <head>
+        
+        <!-- Title -->
+        <title>{{message}}</title>
+        
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="" />
+        
+        <!-- Theme Styles -->
+
+        
+  <script src="../assets/js/angular/angular.min.js"></script>
+        <script src="../assets/js/angular/angular-route.js"></script>
+        <script src="../assets/js/services/services.js"></script>
+        <script src="../assets/js/app.js"></script>
+        <script src="../assets/js/app.config.js"></script>
+        <script src="../assets/js/controllers/test/perfil.js"></script>
+        <script src="../assets/js/directives/directives.js"></script>
+ 
+ 
+        
+    </head>
+    <body class="page-login">
+        <h1>{{message}}</h1>
+        <div>
+            <h3>Get All <button type="bottom" ng-click="get()" class="btn btn-success btn-block">Get All</button></h3>
+            <p>{{GetAllData}}</p>
+        </div>            
+        <div>
+            <h3>Get By Id <button type="bottom" ng-click="getById()" class="btn btn-success btn-block">Get by Id</button></h3>
+            <p>{{GetByIdData}}</p>
+        </div>            
+
+        
+
+    </body>
+</html>

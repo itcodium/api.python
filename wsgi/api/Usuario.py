@@ -20,14 +20,19 @@ sys.path.insert(0, previous_folder)
 import json
 from flask_restful import Resource,marshal_with, fields ,request, Api
 from flask_json import FlaskJSON, JsonError, json_response, as_json
+# pip install Flask-JSON
 
 resource_fields = {
-    'id':fields.Integer,
+    'id_usuario':fields.Integer,
+    'usuario':fields.String,
     'nombre':fields.String,
     'apellido':fields.String,
-    'usuario':fields.String,
-    'habilitado':fields.Integer,
+    'email':fields.String,
+    'password':fields.String,
+    'id_perfil':fields.Integer,
     'creado_por':fields.String,
+    'vigencia_desde':fields.DateTime(dt_format='iso8601'),
+    'vigencia_hasta':fields.DateTime(dt_format='iso8601'),
     'modificado_por':fields.String,
 }
 
@@ -38,7 +43,7 @@ from app.bus import ErrorBus
 from .customException import CustomException
 from .support_jsonp import support_jsonp_custom
 from .support_jsonp import support_jsonp_ok
-
+import hashlib
 
 usuario=UsuarioBus()
 item=UsuarioItem()
@@ -55,14 +60,19 @@ class UsuarioList(Resource,CustomException):
     def post(self):
         try:
             
+            password = request.form['password'] 
+            password_md5 = hashlib.md5(password.encode()).hexdigest()
+
+            item.usuario=request.form['usuario']
             item.nombre=request.form['nombre']
             item.apellido=request.form['apellido']
-            item.usuario=request.form['usuario']
-            item.habilitado=request.form['habilitado']
+            item.email=request.form['email']
+            item.password=password_md5
+            item.id_perfil=request.form['id_perfil']
+            item.vigencia_desde=request.form['vigencia_desde']
+            item.vigencia_hasta=request.form['vigencia_hasta']
             item.creado_por=request.form['creado_por']
-            item.modificado_por=request.form['modificado_por']
-            item.fecha_creacion=request.form['fecha_creacion']
-            item.fecha_modificacion=request.form['fecha_modificacion']
+
 
             res=usuario.insert(item)
             message=error.getErrorMessage('','A0009',res)[0]["ErrorMessage"]
@@ -88,17 +98,19 @@ class Usuario(Resource,CustomException):
 
     def put(self,id):
         try:
+            password = request.form['password'] 
+            password_md5 = hashlib.md5(password.encode()).hexdigest()
             
-            item.id=request.form['id']
+            item.id_usuario=id
+            item.usuario=request.form['usuario']
             item.nombre=request.form['nombre']
             item.apellido=request.form['apellido']
-            item.usuario=request.form['usuario']
-            item.habilitado=request.form['habilitado']
-            item.creado_por=request.form['creado_por']
-            item.modificado_por=request.form['modificado_por']
-            item.fecha_creacion=request.form['fecha_creacion']
-            item.fecha_modificacion=request.form['fecha_modificacion']
-
+            item.email=request.form['email']
+            item.password=password_md5
+            item.id_perfil=request.form['id_perfil']
+            item.vigencia_desde=request.form['vigencia_desde']
+            item.vigencia_hasta=request.form['vigencia_hasta']
+            item.modificado_por='test'
             res=usuario.update(item)   
             message=error.getErrorMessage('','A0008',res)[0]["ErrorMessage"]
             return support_jsonp_ok(request.args,message)

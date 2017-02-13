@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="rrhh" ng-controller="usuario_post">
+    <head>
+     
+
+        <!-- Title -->
+        <title>{{message}}</title>
+        
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="" />
+        
+        <!-- Theme Styles -->
+
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+
+  <script src="../assets/js/angular/angular.min.js"></script>
+        <script src="../assets/js/angular/angular-route.js"></script>
+        <script src="../assets/js/services/services.js"></script>
+        <script src="../assets/js/app.js"></script>
+        <script src="../assets/js/app.config.js"></script>
+        <script src="../assets/js/controllers/test/usuario.js"></script>
+        <script src="../assets/js/directives/directives.js"></script>
+ 
+ 
+        
+    </head>
+    <body class="page-login">
+        <h1>{{message}}</h1>
+        
+        <pre >
+        </pre>
+        <textarea style="width:600px;height:80px;">
+                {{usuario}}
+            </textarea>    
+        
+        
+        <div>
+            <h3>Get</h3>
+                <button type="bottom" ng-click="getAll();">Get All</button>
+                <button type="bottom" ng-click="GetAllJsonP();">Get All JsonP</button>
+            <p>{{GetAllData}}</p>
+            <p>{{GetAllJsonPData}}</p>
+        </div>       
+        <div>
+            <h3>Get ById</h3> 
+                <button type="bottom" ng-click="getById();">Get By Id</button>
+                <button type="bottom" ng-click="getByIdJsonP();" >Get ById JsonP</button>
+            <p>{{getByIdData}}</p>
+            <p>{{getByIdJsonPData}}</p>
+        </div>
+        <div>
+            Id: {{id}}   
+            <input type="text" ng-model="id" />
+        </div>          
+
+        <div>
+            <h3>Post (Json) <button type="bottom" ng-click="postUsuario();" class="btn btn-success btn-block">Post</button></h3>
+            <p>{{post}}</p>
+        </div>                        
+      
+        <div>
+            <h3>Delete <button type="bottom" ng-click="deleteUsuario();">Delete</button></h3>
+            <p>{{deleteData}}</p>
+        </div>
+        <div>
+            <h3>Update<button type="bottom" ng-click="updateUsuario();">update</button></h3>
+            <p>{{updateData}}</p>
+        </div>
+    </body>
+</html>

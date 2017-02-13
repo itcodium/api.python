@@ -1,4 +1,10 @@
- 
+app.directive("themeSettings", function () {
+    return {
+        templateUrl: 'assets/templates/ThemeSettings.html',
+        replace: true,
+        scope: { value: '=' }
+    };
+});
 
 app.directive("pageTitle", function () {
     return {
@@ -15,7 +21,15 @@ app.directive("pageFooter", function () {
         scope: { value: '=' }
     };
 });
- 
+
+app.directive("pageNavigation", function () {
+    return {
+        templateUrl: 'assets/templates/PageNavigation.html',
+        replace: true,
+        scope: { value: '=' }
+    };
+});
+
 
 
 app.directive("menuUser", function () {

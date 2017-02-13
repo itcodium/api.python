@@ -46,10 +46,13 @@ app.controller('mainController', function ($scope) {
 
 app.controller("appController", function($scope,$http,$location) {
 
-    $scope.appName = "Noticias";
-    $scope.message = '';
+
+
+    $scope.appName = "RRHH";
+    $scope.appName = "RRHH";
+    $scope.message = 'Ver. 0.0.1';
     $scope.titulo="";
-    $scope.footer = "Version 0.0.1";
+    $scope.footer = "Version 0.0.1"; // &copy;
     $scope.screen = null;
     $scope.navigation={title:"Navigation",
 						close:"Close",
