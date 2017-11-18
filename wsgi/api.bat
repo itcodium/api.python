@@ -1,4 +1,0 @@
-python routes.py
-@pause
-
-  

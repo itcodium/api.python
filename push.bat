@@ -1,3 +1,3 @@
 git add .
-git commit -m "Upload changes 2017-08-05"
+git commit -m "Modificado Openshift 3 2017-11-18"
 git push

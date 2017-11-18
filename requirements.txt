@@ -1,0 +1,13 @@
+gunicorn
+Flask
+nltk
+feedparser
+sqlalchemy
+dateparser
+bs4
+urllib3
+flask-restful
+Flask-JSON
+flask-cors
+MarkupSafe
+cryptography
